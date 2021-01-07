@@ -1,0 +1,81 @@
+.task {
+	width: 100%;
+	height: 120px;	
+	display: flex;
+	border-radius: 9px;
+	background-color: #fff;
+}
+.row_title {
+	color: rgba(45, 47, 46, 0.25);
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 0px 10px 0 10px;
+}
+.row_text {
+	color: #2D2F2E;
+	font-size: 10pt;
+	font-weight: 400;
+}
+.line-deadline {
+	height: 100%;
+	width: 0.7%;
+	background: rgba(248, 90, 90, 0.5);
+	border-radius: 4px 0 0 4px;
+}
+.row1 {
+	height: 100%;
+	width: 20%;
+	border-right: 2px solid #EBEFF2;
+}
+
+.row2 {
+	height: 100%;
+	width: 20%;
+	border-right: 2px solid #EBEFF2;
+}
+.row3 {
+	height: 100%;
+	width: 44.3%;
+	border-right: 2px solid #EBEFF2;
+}
+.row4 {
+	height: 100%;
+	width: 15%;
+}
+.row1 div {
+	width: 100%;
+	height: 33%;
+	display: flex;
+	align-items: center;
+}
+.row1_col2 {
+	border-top: 2px solid #EBEFF2;
+	border-bottom: 2px solid #EBEFF2;
+}
+.row2 div {
+	width: 100%;
+	height: 24%;
+	display: flex;
+	align-items: center;
+}
+.row2_col1, .row2_col2, .row2_col3 {
+	border-bottom: 2px solid #EBEFF2;
+}
+.row3 div {
+	width: 100%;
+	height: 24%;
+	display: flex;
+	align-items: center;
+}
+.row3_col1, .row3_col2, .row3_col3 {
+	border-bottom: 2px solid #EBEFF2;
+}
+.row4 div {
+	width: 100%;
+	height: 32%;
+	display: flex;
+	align-items: center;
+}
+.row4_col1, .row4_col2 {
+	border-bottom: 2px solid #EBEFF2;
+}

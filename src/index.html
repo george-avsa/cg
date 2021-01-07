@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/cg.css">
+	<link rel="stylesheet" href="style/task.css">
+	<title>CG</title>
+</head>
+<body>	
+	<div class="header">
+		<div class="header_logo"></div>
+		<div class="header_shadow">
+			
+		</div>
+	</div>
+	<div class="wrapper">
+		<div class="sidebar">
+			<div href="" class="sidebar_link first_link_side selected_link_side" id="panel_exc"><img src="images/panel.svg" alt="" class="sidebar_link_icon"> Панель задач</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel.svg" alt="" class="sidebar_link_icon"> Список задач</div>
+		</div>
+		<div class="content">
+			
+		</div>
+	</div>
+</body>
+<script src="libs/jquery.js"></script>
+<script>
+	$( "#panel_exc" ).click(function() {
+		$(".header_form").fadeOut();
+	});
+	$(".content").load("template/task.html");
+	$(".header_shadow").load("template/task_header.html");
+</script>
+</html>

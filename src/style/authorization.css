@@ -1,0 +1,134 @@
+@import "../font/stylesheet.css";
+* {
+    font-family: 'Montserrat';
+    appearance: none;
+    -moz-appearance: none;
+	-webkit-appearance: none;
+}
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #F5F6F8;
+}
+.logo {
+	position: fixed;
+	left: 35px;
+	top: 35px;
+	width: 80px;
+}
+.space {
+	width: 100%;
+	height: 15%;
+}
+.login {
+	width: 70%;
+	height: 70%;
+	margin: 0 auto;
+}
+.login_block {
+	width: 35vw;
+	height: 60vh;
+	border: 2px solid rgba(45, 47, 46, 0.5);
+	border-radius: 30px;
+}
+.login_block_title {
+	width: 100%;
+	height: 25%;
+	font-size: 3vw;
+	font-weight: 900;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.login_block_placeholder {
+	width: 100%;
+	height: 50%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+.login_placeholder {
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid rgba(45, 47, 46, 0.5);
+	background-color: #F5F6F8;
+	height: 40px;
+	font-weight: 500;
+	font-size: 1.2vw;
+	margin-bottom: 10px;
+}
+.login_block_button {
+	width: 100%;
+	height: 25%;
+	display: flex;
+	align-items: flex-end;
+}
+.login_submit {
+	width: 100%;
+	height: 55%;
+	border: none;
+	background: #F8C55A;	
+	border-radius: 9px;
+	font-size: 1.2vw;
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+
+/*tablet vertical*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+	.login_block {
+		width: 70vw;
+		border: none;
+	}
+	.space {
+		width: 100%;
+		height: 10%;
+	}
+	.login {
+		height: 80%;
+	}
+	.login_placeholder {
+		font-size: 2vw;
+	}
+	.login_block_button {
+		width: 100%;
+		height: 25%;
+		display: flex;
+		align-items: flex-end;
+	}
+	.login_submit {
+		height: 40%;
+		font-size: 	2vw;
+	}
+}
+
+@media screen and (max-device-width: 767px) {
+	.logo {
+		left: 10px;
+		top: 10px;
+		width: 50px;
+	}
+	.space {
+		width: 100%;
+		height: 15%;
+	}
+	.login_block {
+		width: 100vw;
+		height: 80vh;
+		border: none;
+	}
+	.login_block_title {
+		font-size: 7vw;
+	}
+	.login_placeholder {
+		font-size: 5vw;
+	}
+	.login_submit {
+		font-size: 5vw;
+	}
+}
