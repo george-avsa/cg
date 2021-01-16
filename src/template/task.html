@@ -1,56 +1,60 @@
 <div class="task">
-	<div class="line-deadline">
+	<div class="main_info_task">
 		
-	</div>
-	<div class="row1">
-		<div class="row1_col1">
-			<h1 class="row_title">Клиент: </h1> <h1 class="row_text">123</h1>
+		<div class="task_checkbox">
+			<input type="checkbox" class="custom-checkbox" id="happy" name="happy" value="yes">
+			<label for="happy"></label>
 		</div>
-		<div class="row1_col2">
-			<h1 class="row_title">ID задачи: </h1> <h1 class="row_text">123</h1>
+		<div class="task_clubname_deadline">
+			<div class="task_clubname_deadline_inner">
+				<h1 class="clubname_task">
+					United Gamers | Подольск
+				</h1>
+				<h1 class="deadline_task">
+					<font class="deadline_task_text">Дедлайн:</font><font class="deadline_task_date">19.12.2020</font> 
+				</h1>
+			</div>
 		</div>
-		<div class="row1_col3">
-			<h1 class="row_title">Ответсвенный: </h1> <h1 class="row_text">123</h1>
-		</div>
-	</div>
-	<div class="row2">
-		<div class="row2_col1">
-			<h1 class="row_title">Направление: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row2_col2">
-			<h1 class="row_title">Дата публикации:</h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row2_col3">
-			<h1 class="row_title">Дедлайн: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row2_col4">
-			<h1 class="row_title">Исполнитель:</h1> <h1 class="row_text">123</h1>
-		</div>
-	</div>
-	<div class="row3">
-		<div class="row3_col1">
-			<h1 class="row_title">Название</h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row3_col2">
-			<h1 class="row_title">Сроки: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row3_col3">
-			<h1 class="row_title">Условия: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row3_col4">
-			<h1 class="row_title">Задача: </h1> <h1 class="row_text">123</h1>
+		<div class="task_name">
+			<div class="task_name_inner">
+				<div class="sort_date_task">
+					<h1 class="clubname_task">
+						Акция | Free Night
+					</h1>
+					<h1 class="deadline_task">
+						<font class="deadline_task_text">Дата публикации: 20.12.2020 </font><font class="deadline_task_date">(14:00 по МСК)</font> 
+					</h1>
+				</div>
+				<div class="task_id_more">
+					<h1 class="task_id">
+						№00923
+					</h1>
+					<div class="task_arrow_down">
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="row4">
-		<div class="row4_col1">
-			<h1 class="row_title">В работе: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row4_col2">
-			<h1 class="row_title">Завершить: </h1> <h1 class="row_text">123</h1>
-		</div>
-		<div class="row4_col3">
-			<h1 class="row_title">Отложить:</h1> <h1 class="row_text">123</h1>
+	<div class="task_extra">
+		<div class="task_extra_deadline">
+			<div class="task_clubname_deadline">
+				<div class="task_clubname_deadline_inner">
+					<h1 class="clubname_task">
+						United Gamers | Подольск
+					</h1>
+					<h1 class="deadline_task">
+						<font class="deadline_task_text">Дедлайн:</font><font class="deadline_task_date">19.12.2020</font> 
+					</h1>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="task_color"></div>
 </div>
-
+<script>
+	$( ".task_arrow_down" ).click(function() {
+		$('.task_name, .task_clubname_deadline').toggleClass( "border-bottom" );
+		$('.task_extra').slideToggle();
+	});
+</script>

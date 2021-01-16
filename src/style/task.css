@@ -1,81 +1,149 @@
 .task {
-	width: 100%;
-	height: 120px;	
-	display: flex;
-	border-radius: 9px;
+	width: auto;
+	min-height: 60px;
 	background-color: #fff;
+	border-radius: 4px;
+	position: relative;
+	padding: 0 30px;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 }
-.row_title {
-	color: rgba(45, 47, 46, 0.25);
-	font-size: 10pt;
-	font-weight: bold;
-	margin: 0px 10px 0 10px;
-}
-.row_text {
-	color: #2D2F2E;
-	font-size: 10pt;
-	font-weight: 400;
-}
-.line-deadline {
-	height: 100%;
-	width: 0.7%;
-	background: rgba(248, 90, 90, 0.5);
-	border-radius: 4px 0 0 4px;
-}
-.row1 {
-	height: 100%;
-	width: 20%;
-	border-right: 2px solid #EBEFF2;
+.main_info_task {
+	width: 100%;
+	height: 60px;
+	display: flex;
 }
 
-.row2 {
+.task_color {
+	position: absolute;
+	left: 0;
+	top: 0;
 	height: 100%;
-	width: 20%;
-	border-right: 2px solid #EBEFF2;
+	width: 8px;
+	border-radius: 4px 0 0 4px; 
+	background: #FBACAC;
 }
-.row3 {
+.task_checkbox {
+	width: 4.5%;
 	height: 100%;
-	width: 44.3%;
-	border-right: 2px solid #EBEFF2;
+	display: flex;
+	align-items: center;
+} 
+.checkbox {
+	height: 10%;
+	width: 30px;
 }
-.row4 {
+.custom-checkbox {
+  z-index: -1;
+  opacity: 0;
+}
+.custom-checkbox+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.custom-checkbox+label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 2px solid #969797;
+  border-radius: 0.25em;
+  background-size: 90%;
+  background-position: 53.5% 42%;
+  background-repeat: no-repeat;
+}
+.custom-checkbox:checked+label::before {
+  background-image: url('../images/inner_checkbox.svg');
+ }
+
+.task_clubname_deadline {
 	height: 100%;
-	width: 15%;
+	width: 25.5%;
+	display: flex;
+	align-items: center;
+	border-right: 3px solid #F5F7F8; 
 }
-.row1 div {
+.task_clubname_deadline_inner {
 	width: 100%;
-	height: 33%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.clubname_task {
+	font-weight: 600;
+	color: #575958;
+	font-size: 15px;
+	line-height: 1;
+	padding: 0; margin: 0;
+}
+.deadline_task {
+	color: #575958;
+	font-size: 0.95vw;
+	line-height: 1;
+	padding: 0; margin: 0;
+}
+.deadline_task_text {
+	font-weight: 600;
+	color: #969797;
+}
+.deadline_task_date {
+	font-weight: 400;
+	color: #575958;
+	margin-left: 5px;
+}
+
+.task_name {
+	width: 70%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 30px;
+}
+.task_name_inner {
+	height: 40px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.sort_date_task {
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.task_id_more {
 	display: flex;
 	align-items: center;
 }
-.row1_col2 {
-	border-top: 2px solid #EBEFF2;
-	border-bottom: 2px solid #EBEFF2;
+.task_id {
+	font-weight: 600;
+	font-size: 1vw;
+	color: #575958;
+	margin-right: 30px;
 }
-.row2 div {
+.task_arrow_down {
+	height: 20px;
+	width: 20px;
+	background-image: url('../images/arrow_down.png');
+	background-position: center;
+	background-size: 80%;
+	background-repeat: no-repeat;
+}
+.task_extra {
+	width: auto;
+	height: 120px;
+	background-color: #fff;
+	display: none;
+	padding-left: 4.5%;
+	margin-top: 3px;
+}
+.border-bottom {
+	border-bottom: 3px solid #F5F7F8; 	
+} 
+.task_extra_deadline {
 	width: 100%;
-	height: 24%;
-	display: flex;
-	align-items: center;
-}
-.row2_col1, .row2_col2, .row2_col3 {
-	border-bottom: 2px solid #EBEFF2;
-}
-.row3 div {
-	width: 100%;
-	height: 24%;
-	display: flex;
-	align-items: center;
-}
-.row3_col1, .row3_col2, .row3_col3 {
-	border-bottom: 2px solid #EBEFF2;
-}
-.row4 div {
-	width: 100%;
-	height: 32%;
-	display: flex;
-	align-items: center;
-}
-.row4_col1, .row4_col2 {
-	border-bottom: 2px solid #EBEFF2;
+	height: 60px;
 }

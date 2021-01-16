@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style/cg.css">
+
 	<link rel="stylesheet" href="style/task.css">
+	<link rel="stylesheet" href="style/main.css">
 	<title>CG</title>
 </head>
 <body>	
@@ -16,8 +18,17 @@
 	</div>
 	<div class="wrapper">
 		<div class="sidebar">
-			<div href="" class="sidebar_link first_link_side selected_link_side" id="panel_exc"><img src="images/panel.svg" alt="" class="sidebar_link_icon"> Панель задач</div>
-			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel.svg" alt="" class="sidebar_link_icon"> Список задач</div>
+			<div href="" class="sidebar_link first_link_side selected_link_side" id="panel_exc"><img src="images/panel_icons/main.png" alt="" class="sidebar_link_icon"> Главная</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/tasks.png" alt="" class="sidebar_link_icon"> Список задач</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/calendar.png" alt="" class="sidebar_link_icon"> Личный план </div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/calendar.png" alt="" class="sidebar_link_icon"> Мониторинг</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/clock.png" alt="" class="sidebar_link_icon"> Коммуниукация</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/file.png" alt="" class="sidebar_link_icon"> Клиенты & KPI</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/key.png" alt="" class="sidebar_link_icon"> Доступы</div>
+			<div href="" class="sidebar_link" id="list_exc"><img src="images/panel_icons/key.png" alt="" class="sidebar_link_icon"> Аккаунты</div>
+			<div class="sidebar_logout">
+				<img src="images/panel_icons/logout.png" alt="" class="sidebar_link_icon"> Выход
+			</div>
 		</div>
 		<div class="content">
 			
@@ -26,10 +37,21 @@
 </body>
 <script src="libs/jquery.js"></script>
 <script>
-	$( "#panel_exc" ).click(function() {
-		$(".header_form").fadeOut();
-	});
-	$(".content").load("template/task.html");
-	$(".header_shadow").load("template/task_header.html");
+	function loadHTML(url_header, url_content){
+		$(".header_shadow").load(url_header);
+		$(".content").load(url_content);
+	}
+
+	// $( "#list_exc" ).click(function() {
+	// 	$('.selected_link_side').removeClass("selected_link_side");
+	// 	$(this).addClass("selected_link_side");
+	// 	loadHTML("template/task_header.html", "template/task.html");
+	// });
+	// $( "#panel_exc" ).click(function() {
+	// 	$('.selected_link_side').removeClass("selected_link_side");
+	// 	$(this).addClass("selected_link_side");
+	// });
+		loadHTML("template/task_header.html", "template/task.html");
 </script>
+
 </html>
