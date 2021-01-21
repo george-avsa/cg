@@ -1,0 +1,104 @@
+<script>
+	var count = 0;
+	function arrowChecker() {
+		if (count == 0) {
+			$('.arrow_left').addClass("form_display_none");
+		} else {$('.arrow_left').removeClass("form_display_none");}
+		if (count == 3) {
+			$('.arrow_right').addClass("form_display_none");
+		} else {$('.arrow_right').removeClass("form_display_none");}
+	}
+	arrowChecker();
+</script>
+<div class="forms_wrapper">
+	<div class="forms_arrow_left"><img src="../images/previous.svg" alt="" class="form_arrows arrow_left"></div>
+	<div class="forms_arrow_right"><img src="../images/next.svg" alt="" class="form_arrows arrow_right"></div>
+	<div class="forms_wrapper">
+		<div class="wrapper_slider">
+			<div class="slider_element">
+				<table class="middle">
+					<tr class="middle">
+						<td class="middle">
+							<form class="create_club">
+								<h1 class="form_title">Создать аккаунт</h1>
+								<input type="text" class="create_text" placeholder="Город">
+								<input type="text" class="create_text" placeholder="Название">
+								<input type="text" class="create_text" placeholder="Логин">
+								<input type="submit" class="create_btn" value="Пароль">
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="slider_element">
+				<table class="middle">
+					<tr class="middle">
+						<td class="middle">
+							<form class="create_club">
+								<h1 class="form_title">Создать Group</h1>
+								<input type="text" class="create_text" placeholder="Клуб">
+								<input type="text" class="create_text" placeholder="Логин">
+								<input type="text" class="create_text" placeholder="Пароль">
+								<input type="submit" class="create_btn" value="Пароль">
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="slider_element">
+				<table class="middle">
+					<tr class="middle">
+						<td class="middle">
+							<form class="create_club">
+								<h1 class="form_title">Создать аккаунт</h1>
+								<input type="text" class="create_text" placeholder="Клуб">
+								<input type="text" class="create_text" placeholder="Город">
+								<input type="submit" class="create_btn" value="Пароль">
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="slider_element">
+				<table class="middle">
+					<tr class="middle">
+						<td class="middle">
+							<form class="create_club">
+								<h1 class="form_title">Создать аккаунт</h1>
+								<input type="text" class="create_text" placeholder="Сотрудник">
+								<input type="text" class="create_text" placeholder="Логин">
+								<input type="text" class="create_text" placeholder="Пароль">
+								<input type="text" class="create_text" placeholder="Доступы">
+								<input type="submit" class="create_btn" value="Пароль">
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$( ".arrow_left" ).click(function() {
+		if (count !== 0) {
+		  count=count-1;
+		  arrowChecker();
+		  $( ".wrapper_slider" ).animate({
+			left: "+=550px"
+		  }, 500, function() {
+		    // Animation complete.
+		  });
+		}
+	});
+	$( ".arrow_right" ).click(function() {
+	  if (count != 3){
+		  count=count+1;
+		  arrowChecker();	
+		  $( ".wrapper_slider" ).animate({
+			left: "-=550px"
+		  }, 500, function() {
+		    // Animation complete.
+		  });
+	  }
+	});
+</script>
