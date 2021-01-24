@@ -1,0 +1,100 @@
+.wrapper_add_task {
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+.add_task_panel {
+	width: 25%;
+	height: 100%;
+	background-color: #fff;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add_task_panel_inner {
+	height: 92%;
+	width: 85%;
+}
+.creator_task_info {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.resposable_creator {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 18px;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	color: #575958;
+}
+.creators_name {
+	width: 100%;
+	margin-top: 6px;
+}
+.creators_name_job {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 18px;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	color: #969797;
+}
+.add_task_margin_top1 {
+	margin-top: 40px;
+}
+.add_task_margin_top {
+	margin-top: 20px;
+}
+.add_task_input, .add_task_select {
+	border: none;
+	width: 100%;
+	height: 40px;
+	background: #F5F6F8;
+	box-shadow: inset 0px 2px 5px rgba(161, 161, 161, 0.25);
+	border-radius: 9px;
+}
+.add_task_statistics {
+	width: 75%;
+	height: 100%;
+	padding-left: 30px;
+}
+.add_task_check_deadline {
+	width: 100%;
+	height: 15%;
+	padding-bottom: 3.5%;
+	display: flex;
+	justify-content: space-between;
+}
+.add_task_dumpy {
+	width: 50%;
+	height: 100%;
+}
+.dumpy_left {
+	padding-right: 15px;
+}
+.dumpy_right {
+	padding-left: 15px;
+}
+.category_choice, .deadline_statistics {
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+	border-radius: 4px;
+}
+.add_task_statisctics_panel {
+	height: 80%;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+	border-radius: 4px;	
+}
