@@ -1,0 +1,91 @@
+<div class="client_control_body">
+	<div class="client_control">
+		<div class="client_control_btn_name">
+			<div class="client_play_pause"></div>
+			<h1 class="client_control_clubname">
+				United Gamers | Подольск
+			</h1>
+		</div>
+		<div class="client_control_login">
+			<h1 class="client_control_login_text">
+				Логин: 
+				<font class="client_control_login_l">
+					NOVA
+				</font>
+			</h1>
+		</div>
+		<div class="client_control_password">
+			<h1 class="client_control_login_text">
+				Пароль: 
+				<font class="client_control_login_l">
+					qwerty123
+				</font>
+			</h1>
+			<div class="client_id_arrow">
+				<h1 class="client_control_id_cl">
+					№00859
+				</h1>
+				<img src="../images/arrow_down.png" alt="" class="client_control_arrow_down">
+			</div>
+		</div>
+	</div>
+	<div class="client_control_extra">
+		<div class="client_control_extra_branch">
+			<div class="client_play_pause"></div>
+			<h1 class="client_control_clubname">
+				1. 
+				<font class="client_control_login_l">
+					Гусь-Хрустальный
+				</font>
+			</h1>
+		</div>
+		<div class="client_control_extra_branch">
+			<div class="client_play_pause"></div>
+			<h1 class="client_control_clubname">
+				1. 
+				<font class="client_control_login_l">
+					Гусь-Хрустальный
+				</font>
+			</h1>
+		</div>
+		<div class="client_control_extra_branch">
+			<div class="client_play_pause"></div>
+			<h1 class="client_control_clubname">
+				1. 
+				<font class="client_control_login_l">
+					Гусь-Хрустальный
+				</font>
+			</h1>
+		</div>
+	</div>
+</div>
+<script>
+	var count = 0;
+	$( ".client_control_arrow_down" ).click(function() {
+		$('.client_control').toggleClass( "border-bottom_client" );
+		$('.client_control_extra').slideToggle();
+		if (count == 0) {
+		  $('.client_control_arrow_down').animate(
+		    { deg: 180 },
+		    {
+		      duration: 500,
+		      step: function(now) {
+		        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+		      }
+		    }
+		  );
+		  count = count + 1;
+		} else {
+			$('.client_control_arrow_down').animate(
+			    { deg: -360 },
+			    {
+			      duration: 500,
+			      step: function(now) {
+			        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+			      }
+			    }
+			  );
+			count = count - 1;
+		}
+	});
+</script>
