@@ -32,14 +32,24 @@
 
 TeamLead и UI/UX design [Дизайн](https://www.figma.com/file/gwI7Nlt4JB878rVtyNa8A9/Untitled?node-id=0%3A1) 
 
+Разработка дизайна страниц системы - 12 ак.ч.
+
+Front-end верстка дизайна страниц системы - 20 ак.ч.
+
 ### Авсаджанишвили Г.В.
 
-backend и frontend
+Back-end и Front-end
+
+Front-end адаптация страниц - 12 ак.ч.
+
+Back-end разработка веб-приложения - 18 ак.ч.
 
 ### Костромин А.
 
 Account manager
 
+Формирование и корректировка технического задания - 15 ак.ч.
 
+Ведение отчётности - 26 ак.ч.
 
 Ссылка на видеопрезентацию проекта: https://www.youtube.com/watch?v=yFMjfo-706k
