@@ -1,0 +1,28 @@
+<div class="header_account">
+	<h1 class="account_header-el" id="account_creation">
+		Создание
+	</h1>
+	<h1 class="account_header-el" id="account_clients">
+		Клиенты
+	</h1>
+	<h1 class="account_header-el" id="account_employee">
+		Сотрудники
+	</h1>
+</div>
+<script>
+	function loadHTMLacc(url_content){
+		$(".content").load(url_content);
+	}
+	$( "#account_clients" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/acc_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/club_control_panel.html');
+
+	});
+	$( "#account_employee" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/acc_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/employee_control_panel.html');
+
+	});
+</script>

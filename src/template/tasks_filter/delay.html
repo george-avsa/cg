@@ -1,0 +1,65 @@
+<meta http-equiv="pragma" content="no-cache"/>
+<div id="tasks_list_wrapper" style="height: 100%; width: 100%;"></div>
+<script>
+	$.ajax({
+		url: "../handlers/task_filter.php",
+		cache: false,
+		success: function(html){
+			var answer = JSON.parse(html);
+   			var tasks_inwork = '';
+   			var tasks_delay = '';
+   			var tasks_missed = '';
+   			var tasks_non = '';
+   			var task_slide_ids = '';
+   			$.each(answer.tasks, function(obj){
+   				if (answer.tasks[obj].status == 2){
+   				var tasks_delay_solo = '<div class="task" id="task"><div class="main_info_task"><div class="task_separator"></div><div class="task_checkbox"><input type="checkbox" class="custom-checkbox" id="happy" name="happy" value="yes"><label for="happy"></label></div><div class="task_clubname_deadline"><div class="task_clubname_deadline_inner"><h1 class="clubname_task">'+ answer.tasks[obj].name +'</h1><h1 class="deadline_task"><font class="deadline_task_text">Дедлайн:</font><font class="deadline_task_date">'+ answer.tasks[obj].deadline +'</font></h1></div></div><div class="task_name"><div class="task_name_inner"><div class="sort_date_task"><h1 class="clubname_task">'+ answer.tasks[obj].type +' | '+ answer.tasks[obj].name +' </h1><h1 class="deadline_task"><font class="deadline_task_text">Дата публикации: '+ answer.tasks[obj].postdate +' </font><font class="deadline_task_date">('+ answer.tasks[obj].posttime +' по МСК)</font></h1></div><div class="task_id_more"><h1 class="task_id" id="content_kek">№'+ answer.tasks[obj].id +'</h1><div class="task_arrow_down" onclick="slideTask(extra'+ answer.tasks[obj].id +')"></div></div></div></div></div><div class="task_extra" id="extra'+ answer.tasks[obj].id +'"><div class="task_extra_deadline"><div class="task_separator_task_extra"></div><div class="task_extra_date_of_deadline"><div class="task_extra_date_of_deadline_inner"><h1 class="clubname_task">Дата и время постинга:</h1><h1 class="deadline_task"><font class="deadline_task_date_extra">20.12.2020 (20:20 по МСК)</font></h1></div></div><div class="task_extra_dates_buttons"><div class="task_extra_dates"><h1 class="clubname_task">Сроки:</h1><h1 class="deadline_task"><font class="deadline_task_date_extra">20.12.2020 - 18.01.2021</font></h1></div><div class="task_extra_buttons"><div class="task_button" onclick="changeStatusToModification('+ answer.tasks[obj].id +')" style="background: #FBACAC;"></div><div class="task_button" onclick="changeStatusToDelay('+ answer.tasks[obj].id +')" style="background: #F9E0AB;"></div><div class="task_button" onclick="changeStatusToWork('+ answer.tasks[obj].id +')" style="background: #AEFBAC;"></div></div></div></div><div class="task_extra_comment"><h1 class="deadline_task"><font class="clubname_task">Комментарий: </font><font class="tasl_extra_comment">'+ answer.tasks[obj].comment +'</font></h1></div></div><div class="task_color" style="background:#F9E0AB;;"></div></div>';
+				tasks_delay = tasks_delay + tasks_delay_solo;
+				}
+   			});
+		$('#tasks_list_wrapper').html(tasks_delay);
+		}
+	});
+		function slideTask(id) {
+				$(".task_name, .task_clubname_deadline").toggleClass( "border-bottom" );
+				$(id).slideToggle();
+			};
+		function changeStatusToModification(argument) {
+			$.ajax({
+				url: '../handlers/changestatustomod.php',
+				method: 'post',
+				dataType: 'html',
+				data: {text: argument},
+				success: function(data){
+					alert(data);
+					loadHTML("template/task_header.html", "template/task.html");
+				}
+			});
+		}
+		function changeStatusToDelay(argument) {
+			$.ajax({
+				url: '../handlers/changestatustodelay.php',
+				method: 'post',
+				dataType: 'html',
+				data: {text: argument},
+				success: function(data){
+					alert(data);
+					loadHTML("template/task_header.html", "template/task.html");
+				}
+			});
+		}
+		function changeStatusToWork(argument) {
+			$.ajax({
+				url: '../handlers/changestatustowork.php',
+				method: 'post',
+				dataType: 'html',
+				data: {text: argument},
+				success: function(data){
+					alert(data);
+					loadHTML("template/task_header.html", "template/task.html");
+				}
+			});
+		}
+			// setTimeout(slideTask, 10000);
+</script>
+

@@ -1,4 +1,61 @@
-<div class="client_control_body">
+<meta http-equiv="pragma" content="no-cache"/>
+<div id="clubs_list_wrapper" style="height: 100%; width: 100%;"></div>
+<script>
+	$.ajax({
+		url: "../handlers/clubs_filter.php",
+		cache: false,
+		success: function(html){
+			var answer = JSON.parse(html);
+   			var client = '';
+   			$.each(answer.clients, function(obj){
+   				var client_solo = '<div class="client_control_body"><div class="client_control"><div class="client_control_btn_name"><div class="client_play_pause play"></div><h1 class="client_control_clubname"> '+ answer.clients[obj].name +' | '+ answer.clients[obj].city +'</h1></div><div class="client_control_login"><h1 class="client_control_login_text">Логин:<font class="client_control_login_l">'+ answer.clients[obj].login +'</font></h1></div><div class="client_control_password"><h1 class="client_control_login_text">Пароль:<font class="client_control_login_l">'+ answer.clients[obj].password +'</font></h1><div class="client_id_arrow"><h1 class="client_control_id_cl">№'+ answer.clients[obj].id +'</h1></div></div>	</div></div>';
+				client = client + client_solo;
+   			});
+   			var group = '';
+   			$.each(answer.group, function(obj){
+	   			var extra_str = '';
+	   			var count = 1;
+				$.each(this.cities, function(i){
+					var extra_solo = '<div class="client_control_extra_branch"><div class="client_play_pause play"></div><h1 class="client_control_clubname">'+count+'.<font class="client_control_login_l"> '+answer.group[obj].cities[i].city+'</font></h1></div>';
+						extra_str = extra_str + extra_solo; 
+						count++;
+				});
+   				var group_solo = '<div class="client_control_body"><div class="client_control"><div class="client_control_btn_name"><div class="client_play_pause play"></div><h1 class="client_control_clubname">United Gamers | Подольск</h1></div><div class="client_control_login"><h1 class="client_control_login_text">Логин:<font class="client_control_login_l">NOVA</font></h1></div><div class="client_control_password"><h1 class="client_control_login_text">Пароль:<font class="client_control_login_l">qwerty123</font></h1><div class="client_id_arrow"><h1 class="client_control_id_cl">№00859</h1><img onclick="slideDown(extra'+answer.group[obj].id+')" src="../images/arrow_down.png" alt="" class="client_control_arrow_down"></div></div></div><div class="client_control_extra" id="extra'+answer.group[obj].id+'">'+extra_str+'</div></div>';
+				group = group + group_solo;
+   			});
+   			var full = client + group;
+   		$('#clubs_list_wrapper').html(full);
+   		}
+   	});
+function slideDown(id) {
+	$(id).slideToggle();
+	$('.client_control').toggleClass( "border-bottom_client" );
+	if (count == 0) {
+	  $('.client_control_arrow_down').animate(
+	    { deg: 180 },
+	    {
+	      duration: 500,
+	      step: function(now) {
+	        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+	      }
+	    }
+	  );
+	  count = count + 1;
+	} else {
+		$('.client_control_arrow_down').animate(
+		    { deg: -360 },
+		    {
+		      duration: 500,
+		      step: function(now) {
+		        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+		      }
+		    }
+		  );
+		count = count - 1;
+	}
+};
+</script>
+<!-- <div class="client_control_body">
 	<div class="client_control">
 		<div class="client_control_btn_name">
 			<div class="client_play_pause"></div>
@@ -25,40 +82,10 @@
 				<h1 class="client_control_id_cl">
 					№00859
 				</h1>
-				<img src="../images/arrow_down.png" alt="" class="client_control_arrow_down">
 			</div>
 		</div>
 	</div>
-	<div class="client_control_extra">
-		<div class="client_control_extra_branch">
-			<div class="client_play_pause"></div>
-			<h1 class="client_control_clubname">
-				1. 
-				<font class="client_control_login_l">
-					Гусь-Хрустальный
-				</font>
-			</h1>
-		</div>
-		<div class="client_control_extra_branch">
-			<div class="client_play_pause"></div>
-			<h1 class="client_control_clubname">
-				1. 
-				<font class="client_control_login_l">
-					Гусь-Хрустальный
-				</font>
-			</h1>
-		</div>
-		<div class="client_control_extra_branch">
-			<div class="client_play_pause"></div>
-			<h1 class="client_control_clubname">
-				1. 
-				<font class="client_control_login_l">
-					Гусь-Хрустальный
-				</font>
-			</h1>
-		</div>
-	</div>
-</div>
+</div> -->
 <script>
 	var count = 0;
 	$( ".client_control_arrow_down" ).click(function() {

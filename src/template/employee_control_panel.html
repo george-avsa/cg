@@ -1,29 +1,37 @@
-<div class="client_control_body">
-	<div class="client_control">
-		<div class="client_control_btn_name">
-			<div class="client_play_pause"></div>
-			<h1 class="client_control_clubname">
-				United Gamers | Подольск
-			</h1>
-		</div>
-		<div class="client_control_login">
-			<h1 class="client_control_login_text">
-				Логин: 
-				<font class="client_control_login_l">
-					NOVA
-				</font>
-			</h1>
-		</div>
-		<div class="client_control_password">
-			<h1 class="client_control_login_text">
-				Пароль: 
-				<font class="client_control_login_l">
-					qwerty123
-				</font>
-			</h1>
-			<h1 class="client_control_id_cl">
-				№00859
-			</h1>
-		</div>
-	</div>
-</div>
+<meta http-equiv="pragma" content="no-cache"/>
+<div id="users_list_wrapper" style="height: 100%; width: 100%;"></div>
+<script>
+	$.ajax({
+		url: "../handlers/users_filter.php",
+		cache: false,
+		success: function(html){
+			var answer = JSON.parse(html);
+   			var client = '';
+   			$.each(answer.users, function(obj){
+   				if (answer.users[obj].status == 0) {
+   					var clas = 'pause';
+   				} else if(answer.users[obj].status == 1) {
+   					var clas = 'play';
+   				}
+   				if (answer.users[obj].status != 2) {
+   				var client_solo = '<div class="client_control_body"><div class="client_control"><div class="client_control_btn_name"><div class="client_play_pause '+ clas +'" onclick="playpause('+  answer.users[obj].id +')"></div><h1 class="client_control_clubname">'+ answer.users[obj].name +' | '+ answer.users[obj].business +'</h1></div><div class="client_control_login"><h1 class="client_control_login_text">Логин:<font class="client_control_login_l"> '+ answer.users[obj].login +'</font></h1></div><div class="client_control_password"><h1 class="client_control_login_text"><font class="client_control_login_l"></font></h1><h1 class="client_control_id_cl">№'+ answer.users[obj].id +'</h1></div></div></div>';
+				client = client + client_solo;
+   			}});
+   		$('#users_list_wrapper').html(client);
+   		}
+   	});
+   	function playpause(kek) {
+   		$('.client_play_pause').toggleClass( "play" );
+   		$('.client_play_pause').toggleClass( "pause" );
+   		$.ajax({
+			url: '../handlers/freeze_user.php',         /* Куда пойдет запрос */
+			method: 'get',             /* Метод передачи (post или get) */
+			dataType: 'html',          /* Тип данных в ответе (xml, json, script, html). */
+			data: {text: kek},     /* Параметры передаваемые в запросе. */
+			success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+				alert(data);            /* В переменной data содержится ответ от index.php. */
+			}
+		});
+   	}
+</script>
+

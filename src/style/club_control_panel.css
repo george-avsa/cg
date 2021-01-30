@@ -72,10 +72,15 @@
 	height: 14px;
 	width: 14px;
 	margin-right: 20px;
-	background-image: url(../images/play.svg);
 	background-position: center;
 	background-size: 15px;
 	background-repeat: no-repeat; 
+}
+.pause {
+	background-image: url(../images/pause.svg);
+}
+.play {
+	background-image: url(../images/play.svg);
 }
 .client_control_clubname {
 	font-style: normal;

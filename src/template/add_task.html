@@ -1,5 +1,8 @@
+<meta http-equiv="pragma" content="no-cache"/>
+
+
 <div class="wrapper_add_task">
-	<form action="" class="add_task_panel">
+	<form class="add_task_panel" method="post" action="../handlers/create_tasl.php">
 		<div class="add_task_panel_inner">
 			<div>
 			<div class="creator_task_info">
@@ -15,22 +18,23 @@
 					Яна #Manager
 				</h1>
 			</div>
-			<input type="text" class="add_task_margin_top1 add_task_input">
-			<input type="text" class="add_task_margin_top add_task_input">
+			<input type="text" class="add_task_margin_top1 add_task_input" placeholder="Название" name="name_task">
+			<input type="text" class="add_task_margin_top add_task_input" placeholder="Клиент" name="client">
 			<select name="" id="" class="add_task_margin_top add_task_select">
 				<option disabled>Клиент</option>
 				<option>123</option>
 			</select>
-			<select name="" id="" class="add_task_margin_top add_task_select">
+			<!-- <select name="" id="" class="add_task_margin_top add_task_select">
 				<option disabled>Клиент</option>
 				<option>123</option>
-			</select>
-			<input type="text" class="add_task_margin_top add_task_input">
-			<input type="text" class="add_task_margin_top add_task_input">
+			</select> -->
+			<input type="text" class="add_task_margin_top add_task_input" placeholder="Исполнитель" name="responsable">
+			<input type="text" class="add_task_margin_top add_task_input" placeholder="Дата дедлайна" name="deadline_time">
+			<input type="text" class="add_task_margin_top add_task_input" placeholder="Время дедлайна" name="deadline_data">
 			</div>
 			<div>
-			<input type="text " class="add_task_textarea">
-			<input type="submit" class="add_task_margin_top add_task_submit" value="Добавить">
+			<input type="text " class="add_task_textarea" placeholder="Комментарий" name="comment">
+			<input type="submit" class="add_task_margin_top add_task_submit" id="btn_create_task" value="Добавить">
 			</div> 
 		</div>
 	</form>
@@ -63,29 +67,99 @@
 		</div>
 		<div class="add_task_statisctics_panel">
 			<div class="add_task_cols">
-				<h1 class="stats_col_tittle">
-					Всего задач - 29
+				<h1 class="stats_col_tittle" id="all_tasks">
+					
 				</h1>
-				<h2 class="stats_col_employee">
-					Артем - 15
-				</h2>
+				<div id="name_all">
+
+				</div>
 			</div>
 			<div class="add_task_cols">
-				<h1 class="stats_col_tittle">
-					Всего задач - 29
+				<h1 class="stats_col_tittle" id="inwork_tasks">
+					
 				</h1>
-				<h2 class="stats_col_employee">
-					Артем - 15
-				</h2>
+				<div id="name_inwork">
+					
+				</div>
 			</div>
 			<div class="add_task_cols">
-				<h1 class="stats_col_tittle">
-					Всего задач - 29
+				<h1 class="stats_col_tittle" id="missed_tasks">
+					
 				</h1>
-				<h2 class="stats_col_employee">
-					Артем - 15
-				</h2>
+				<div id="name_missed">
+					
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<!-- 0 - выполнено
+1 - в работе
+2 - отложено
+3 - на согласовании
+4 - провалено
+5 - доработка 
+6 - не в работе
+-->
+<script>
+	$(document).ready(function() {
+		$.ajax({
+		url: "../handlers/add_task_panel.php",
+		cache: false,
+		success: function(html){
+			var answer = JSON.parse(html);
+			// наполнение блока статистики
+   			var all_tasks = 0;
+   			var inwork_tasks = 0;
+   			var missed_tasks = 0;
+   			$.each(answer.tasks, function(obj){
+   				if (answer.tasks[obj].status == 6) {
+   					all_tasks++;
+   				} else if (answer.tasks[obj].status == 1) {
+   					inwork_tasks++;
+   				} else if (answer.tasks[obj].status == 4) {
+   					missed_tasks++;
+   				} 
+   			});
+   			var all_tasks_str = 'Всего задач - ' + all_tasks;
+   			var inwork_tasks_str = 'В работе - ' + inwork_tasks;
+   			var missed_tasks_str = 'Просроченных - ' + missed_tasks;
+   			document.getElementById('all_tasks').innerHTML= all_tasks_str;
+   			document.getElementById('inwork_tasks').innerHTML= inwork_tasks_str;
+   			document.getElementById('missed_tasks').innerHTML= missed_tasks_str;
+			var name_all = '';
+			var name_inwork = '';
+			var name_missed = '';
+   			$.each(answer.tasks_amount, function(obj){
+   				var name_all_one = '<h2 class="stats_col_employee">'+answer.tasks_amount[obj].name+' - '+ answer.tasks_amount[obj].tasks_amount_user.alltasks +'</h2>';
+   				var name_inwork_one = '<h2 class="stats_col_employee">'+answer.tasks_amount[obj].name+' - '+ answer.tasks_amount[obj].tasks_amount_user.inworktasks +'</h2>';
+   				var name_missed_one = '<h2 class="stats_col_employee">'+answer.tasks_amount[obj].name+' - '+ answer.tasks_amount[obj].tasks_amount_user.missedtasks +'</h2>';
+   				name_all = name_all +''+ name_all_one;
+   				name_inwork = name_inwork +''+ name_inwork_one;
+   				name_missed = name_missed +''+ name_missed_one;
+
+   			});
+   			document.getElementById('name_all').innerHTML= name_all;
+   			document.getElementById('name_inwork').innerHTML= name_inwork;
+   			document.getElementById('name_missed').innerHTML= name_missed;
+   			// информация об ответственном за создание заданий
+
+		}
+	});
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		$('form').submit(function(event) {
+			event.preventDefault();
+				$.ajax({
+					url: '../handlers/create_tasl.php',
+					method: 'post',
+					data: $(this).serialize(),
+					success: function(data){
+						
+					}
+				});
+		});
+	});
+</script>

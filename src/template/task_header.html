@@ -1,8 +1,55 @@
-<form action="" class="header_form">
-	<input type="submit" value="Все задачи" class="header_btns">
-	<input type="submit" value="Клиент" class="header_btns">
-	<input type="submit" value="Направление" class="header_btns">
-	<input type="submit" value="В работе" class="header_btns">
-	<input type="submit" value="Отложено" class="header_btns">
-	<input type="submit" value="Завершенные" class="header_btns">
-</form>
+<div class="header_account">
+	<h1 class="account_header-el" id="all_tasks">
+		Все задачи
+	</h1>
+	<h1 class="account_header-el" id="in_work_tasks">
+		В работе
+	</h1>
+	<h1 class="account_header-el" id="delay_tasks">
+		Отложенные
+	</h1>
+	<h1 class="account_header-el" id="modificated_tasks">
+		На доработке
+	</h1>
+	<h1 class="account_header-el" id="not_in_work_tasks">
+		Не начатые
+	</h1>
+	<h1 class="account_header-el" id="missed_tasks">
+		Проваленные
+	</h1>
+</div>
+<script>
+	function loadHTMLacc(url_content){
+		$(".content").load(url_content);
+	}
+	$( "#all_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/task.html');
+	});
+	$( "#in_work_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/tasks_filter/in_work.html');
+	});
+	$( "#delay_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/tasks_filter/delay.html');
+	});
+	$( "#modificated_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/tasks_filter/modification.html');
+	});
+	$( "#not_in_work_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'template/tasks_filter/not_in_work.html');
+	});
+	$( "#missed_tasks" ).click(function() {
+		loadHTMLacc("template/preloader.html");
+		$(".header_shadow").load('template/task_header.html');
+		setTimeout(loadHTMLacc, 2000, 'tasks_filter/missed_tasks.html');
+	});
+</script>

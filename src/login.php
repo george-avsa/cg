@@ -10,16 +10,16 @@
 	<img src="images/CG_dark.svg" alt="" class="logo">
 	<div class="login_block">
 		<div class="space"></div>
-		<form action="" class="login">
+		<form class="login" action="handlers/login.php" method="post">
 			<div class="login_block_title">
 				Авторизация
 			</div>
 			<div class="login_block_placeholder">
-				<input type="text" class="login_placeholder" placeholder="Логин">
-				<input type="text" class="login_placeholder" placeholder="Пароль">
+				<input type="text" class="login_placeholder" placeholder="Логин" name="input_id">
+				<input type="text" class="login_placeholder" placeholder="Пароль" name="password">
 			</div>
 			<div class="login_block_button">
-				<input type="submit" class="login_submit" value="Войти">
+				<input type="submit" class="login_submit" value="Войти" name="enter_btn">
 			</div>
 		</form>
 		<div class="space"></div>
