@@ -9,21 +9,15 @@
 				<h1 class="resposable_creator">
 					Ответственный
 				</h1>
-				<h1 class="resposable_creator">
-					№1488
+				<h1 class="resposable_creator" id="creator_id">
 				</h1>
 			</div>
 			<div class="creators_name">
-				<h1 class="creators_name_job">
-					Яна #Manager
+				<h1 class="creators_name_job" id="creator_name_business">
 				</h1>
 			</div>
 			<input type="text" class="add_task_margin_top1 add_task_input" placeholder="Название" name="name_task">
 			<input type="text" class="add_task_margin_top add_task_input" placeholder="Клиент" name="client">
-			<select name="" id="" class="add_task_margin_top add_task_select">
-				<option disabled>Клиент</option>
-				<option>123</option>
-			</select>
 			<!-- <select name="" id="" class="add_task_margin_top add_task_select">
 				<option disabled>Клиент</option>
 				<option>123</option>
@@ -142,7 +136,13 @@
    			document.getElementById('name_all').innerHTML= name_all;
    			document.getElementById('name_inwork').innerHTML= name_inwork;
    			document.getElementById('name_missed').innerHTML= name_missed;
+   			
+   			document.getElementById('creator_id').innerHTML= '№'+answer.creator.id;
+   			document.getElementById('creator_name_business').innerHTML= answer.creator.name +' #'+answer.creator.business;
+
+   			
    			// информация об ответственном за создание заданий
+
 
 		}
 	});

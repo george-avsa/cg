@@ -1,5 +1,11 @@
 <?php 
 require "../libs/db.php";
+$user = R::findOne('user', 'login = ?', array($_SESSION['logged_user']));
+$user_arrat = array (
+	name=>$user->name,
+	id=>$user->id,
+	business=>$user->business,
+);
 $tasks = R::findAll('task');
 $sum_array = array();
 foreach ($tasks as $key) {
@@ -42,6 +48,7 @@ foreach ($users as $user) {
 $global_array = array(
 	tasks => $sum_array,
 	tasks_amount => $user_tasks,
+	creator => $user_arrat,
 );
 echo json_encode($global_array);
  ?>
