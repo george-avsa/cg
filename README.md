@@ -39,3 +39,7 @@ backend и frontend
 ### Костромин А.
 
 Account manager
+
+
+
+Ссылка на видеопрезентацию проекта: https://www.youtube.com/watch?v=yFMjfo-706k
